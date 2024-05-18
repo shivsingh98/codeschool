@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "animate.css";
+import "remixicon/fonts/remixicon.css";
+import Home from "./components/Home";
+import Teachers from "./components/Teachers";
+import Holidays from "./components/Holidays";
+import ContactUs from "./components/ContactUs";
+import NotFound from "./components/NotFound";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/teachers" element={<Teachers />} />
+          <Route path="/holidays" element={<Holidays />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
+
+// import React, {useState} from 'react'
+
+// export default function App() {
+//   const [show, setShow] = useState(true)
+//   // var show = false;
+//   // function toggle(){
+//   //   setShow(!show);
+//   // }
+//   return (
+//     <div>
+//       <h1 style={{
+//       color: show?"blue":"red"
+//     }}>Codingott</h1>
+//       {show && <p>Haaaaaaaaaaa</p> }
+//       <button onClick={() =>{setShow(!show)}}>{show?"Hide":"Show"}</button>
+//     </div>
+//   )
+// }
